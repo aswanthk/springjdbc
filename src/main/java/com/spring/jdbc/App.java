@@ -1,5 +1,7 @@
 package com.spring.jdbc;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.spring.jdbc.dao.StudentDao;
@@ -14,10 +16,10 @@ public class App
         StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
         
         // Insert a record
-        Student student=new Student();
-        student.setId(104);
-        student.setName("Ryan");
-        student.setCity("Paris");
+//        Student student=new Student();
+//        student.setId(104);
+//        student.setName("Ryan");
+//        student.setCity("Paris");
 //        
 //        int result = studentDao.insert(student);
 //        System.out.println(result + " record inserted");
@@ -33,5 +35,15 @@ public class App
         // Delete a record
 //        int result=studentDao.delete(104);
 //        System.out.println(result + " record deleted");
+        
+        // Fetch one record
+//        Student student = studentDao.getStudent(102);
+//        System.out.println(student);
+        
+        // Fetch all records
+        List<Student> students = studentDao.getAllStudents();
+        for(Student s: students) {
+			System.out.println(s);
+		}
     }
 }
